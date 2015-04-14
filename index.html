@@ -99,38 +99,7 @@
 
 		<header>Parkeren in gent</header>
 
-		<div class="parkingoverview" ng-controller="parkingOverviewController">
-
-			<form>
-				<fieldset>
-					<legend>Settings</legend>
-					<div class="form-group">
-						<label for="order">Sorteer op:</label>
-						<select id="order" ng-model="orderOn" class="form-control">
-							<option value="description">Beschrijving</option>
-							<option value="-description">Beschrijving aflopend</option>
-							<option value="available">Beschikbaarheid</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="filter">Zoek:</label>
-						<input type="text" id="filter" placeholder="zoekterm" ng-model="filter"/>
-					</div>
-				</fieldset>
-			</form>
-
-			<div class="loadingcontainer">
-				<img class="loading" src="../img/loading.gif" ng-hide="parkings.length > 0">
-			</div>
-
-			<ul id="parkingList">
-				<li class="parking" ng-class="capacity(p)" ng-repeat="p in parkings | orderBy: orderOn | filter: filterOn">
-					<span class="p">P</span>
-					<span class="description">{{p.description}}</span>
-					<span class="info">{{p.available}} / {{p.capacity}}</span>
-				</li>
-			</ul>
-		</div>
+		<div ng-include="'ParkingOverview/ParkingOverview.html'"></div>
 
 		<footer>&copy; OAK3 - 2015</footer>
 
